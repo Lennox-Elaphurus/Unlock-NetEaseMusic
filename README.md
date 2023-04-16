@@ -1,5 +1,7 @@
 # Unlock-NetEaseMusic
-Use the Chrome extension NetEaseMusicWorld+ to unlock overseas NetEase Music access
+Use the Chrome extension NetEaseMusicWorld+ to unlock overseas NetEase Music access.
+
+It's run by Github Actions, so no self-hosted server is needed.
 
 ## How to run on Github
 
