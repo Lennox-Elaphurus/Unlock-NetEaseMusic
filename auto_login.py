@@ -53,7 +53,7 @@ def extension_login(email,password):
     browser.find_element_by_xpath("//a[text()='网易邮箱帐号登录']").click()
 
     # 进入iframe
-    time.sleep(2)
+    time.sleep(7)
     logging.info("Enter login iframe")
     target = browser.find_element_by_xpath("//*[starts-with(@id,'x-URS-iframe')]")
     browser.execute_script('arguments[0].scrollIntoView(true);', target)
