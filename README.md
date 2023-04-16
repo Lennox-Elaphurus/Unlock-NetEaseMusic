@@ -4,7 +4,7 @@ Use the Chrome extension NetEaseMusicWorld+ to unlock overseas NetEase Music acc
 ## How to run on Github
 
 1. Enter your email and password as `EMAIL` and `PASSWORD`  Github Action repository secret.
-2. Run Github Action `Unlock-NetEaseMusic` (It will run automatically everyday.)
+2. Run Github Action `Unlock-NetEaseMusic` (It will run automatically every day.)
 
 ## How to run locally
 
