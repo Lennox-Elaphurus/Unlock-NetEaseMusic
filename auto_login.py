@@ -24,18 +24,15 @@ def extension_login(email,password):
     # browser = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
 
     # 设置全局的隐式等待(直到找到元素),20秒后找不到抛出找不到元素
-    browser.implicitly_wait(15)
+    browser.implicitly_wait(20)
 
     browser.get('https://music.163.com')
-
-    # browser.set_window_size(1500,500) # 设置窗口尺寸
-    # browser.maximize_window() # 全屏
 
     # 查找登录按钮
     target = browser.find_element_by_xpath("//a[text()='登录']")
     browser.execute_script('arguments[0].scrollIntoView(true);', target)
 
-    time.sleep(2)
+    time.sleep(10)
     # 点击"登录"按钮
     logging.info("Click login button")
     browser.find_element_by_xpath("//a[text()='登录']").click()
@@ -49,7 +46,6 @@ def extension_login(email,password):
     logging.info("Click agreements")
     browser.find_element_by_id('j-official-terms').click()
 
-    
     browser.find_element_by_xpath("//a[text()='网易邮箱帐号登录']").click()
 
     # 进入iframe
