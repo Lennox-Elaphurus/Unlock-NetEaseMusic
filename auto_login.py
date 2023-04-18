@@ -87,5 +87,5 @@ if __name__ == '__main__':
         password = os.environ['PASSWORD']
     except:
         logging.error('Fail to read email and password.')
-
-    extension_login(email,password)
+    else:
+        extension_login(email,password)
