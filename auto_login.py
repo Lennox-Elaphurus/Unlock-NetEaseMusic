@@ -11,8 +11,17 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 
+@retry(wait_random_min=5000, wait_random_max=10000, stop_max_attempt_number=3)
+def enter_iframe(browser):
+    logging.info("Enter login iframe")
+    target = browser.find_element_by_xpath("//*[starts-with(@id,'x-URS-iframe')]")
+    # browser.execute_script('arguments[0].scrollIntoView(true);', target)
+    browser.switch_to.frame(target)
+
+    return browser
+
 # 失败后随机 1-3s 后重试，最多 3 次
-@retry(wait_random_min=1000, wait_random_max=3000, stop_max_attempt_number=3)
+@retry(wait_random_min=1000, wait_random_max=3000, stop_max_attempt_number=5)
 def extension_login(email,password):
     chrome_options = webdriver.ChromeOptions()
 
@@ -50,10 +59,7 @@ def extension_login(email,password):
 
     # 进入iframe
     time.sleep(10)
-    logging.info("Enter login iframe")
-    target = browser.find_element_by_xpath("//*[starts-with(@id,'x-URS-iframe')]")
-    # browser.execute_script('arguments[0].scrollIntoView(true);', target)
-    browser.switch_to.frame(target)
+    browser = enter_iframe(browser)
 
     # 输入账号密码
     logging.info("Enter email and password")
